@@ -1,3 +1,14 @@
+Seeq uses a modified version of jep to solve the problem that JAVA_HOME is not considered on MacOS
+
+v3.8.2sq
+    Changed file:
+        commands/java.py
+            Removed special treatment of macos (line 33)
+
+
+Jep - Original README
+===========================
+
 .. image:: https://img.shields.io/pypi/pyversions/Jep.svg
     :target: https://pypi.python.org/pypi/jep
 

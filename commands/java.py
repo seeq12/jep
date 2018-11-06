@@ -30,22 +30,23 @@ def get_java_home():
     if _java_home is not None:
         return _java_home
 
-    if is_osx():
-        # newer macs have an executable to help us
-        try:
-            result = shell('/usr/libexec/java_home')
-            _java_home = result.stdout.decode('utf-8')
-            return _java_home
-        except CommandFailed:
-            traceback.print_exc()
-            if not os.path.exists(MAC_JAVA_HOME):
-                configure_error('No JAVA_HOME')
-
-        # Apple's JAVA_HOME is predictable, just use that if we can
-        # though it doesn't work for Oracle's JDK
-        if os.path.exists(MAC_JAVA_HOME):
-            _java_home = MAC_JAVA_HOME
-            return _java_home
+    # No need to use /usr/libexec/java_home. In seeq case, we always have java isolated in the toolchain
+    # if is_osx():
+    #     # newer macs have an executable to help us
+    #     try:
+    #         result = shell('/usr/libexec/java_home')
+    #         _java_home = result.stdout.decode('utf-8')
+    #         return _java_home
+    #     except CommandFailed:
+    #         traceback.print_exc()
+    #         if not os.path.exists(MAC_JAVA_HOME):
+    #             configure_error('No JAVA_HOME')
+    #
+    #     # Apple's JAVA_HOME is predictable, just use that if we can
+    #     # though it doesn't work for Oracle's JDK
+    #     if os.path.exists(MAC_JAVA_HOME):
+    #         _java_home = MAC_JAVA_HOME
+    #         return _java_home
 
     env_home = os.environ.get('JAVA_HOME')
     if env_home:
