@@ -10,7 +10,8 @@ following problems:
 import distutils
 from distutils import msvc9compiler as old_msvc_module
 from distutils.msvc9compiler import MSVCCompiler as old_MSVCCompiler
-
+from distutils import _msvccompiler as _msvccompiler
+import platform
 
 class MSVCCompiler(old_MSVCCompiler):
 
@@ -95,9 +96,8 @@ def find_vcvarsall(version):
         if os.path.isfile(vcvarsall):
             return vcvarsall
     else:
-        # this implies that MSVC++ for Python2.7 is not installed, and we
-        # should fall back to attempting through MSVC from Visual Studio
-        return old_find_vcvarsall(version)
+        # Attempt to find mvsc for VS 2015 or 2017
+        vcvarsall, vcruntime = _msvccompiler._find_vcvarsall(platform.architecture())
+        return vcvarsall
 
-old_find_vcvarsall = old_msvc_module.find_vcvarsall
 old_msvc_module.find_vcvarsall = find_vcvarsall

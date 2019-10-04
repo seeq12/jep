@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>black.ninia</groupId>
   <artifactId>jep</artifactId>
-  <version>3.8.2sq</version>
+  <version>3.8.2sq-v2</version>
   <packaging>jar</packaging>
 
   <name>Java Embedded Python</name>
@@ -38,7 +38,7 @@
   <scm>
     <connection>scm:git:git://github.com/seeq12/jep.git</connection>
     <developerConnection>scm:git:ssh://github.com:seeq12/jep.git</developerConnection>
-    <url>https://github.com/seeq12/jep/tree/v3.8.2sq</url>
+    <url>https://github.com/seeq12/jep/tree/v3.8.2sq-v2</url>
    </scm>
 
   <properties>

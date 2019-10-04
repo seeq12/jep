@@ -5,6 +5,13 @@ v3.8.2sq
         commands/java.py
             Removed special treatment of macos (line 33)
 
+sq-v2 (10/3/19): Updated to locate Visual C++ compiler for VS 2017
+  (Github issue: https://github.com/ninia/jep/issues/160)
+Changed file:
+    commands/msvc9compiler.py
+        Use distutils._msvccompiler._find_vcvarsall to find vcvarsall.bat file
+          instead of distutils.msvc9compiler.find_vcvarsall
+
 
 Jep - Original README
 ===========================
@@ -17,7 +24,7 @@ Jep - Original README
 
 .. image:: https://img.shields.io/pypi/v/Jep.svg
     :target: https://pypie.python.org/pypi/jep
-	
+
 .. image:: https://img.shields.io/badge/docs-wiki-orange.svg
     :target: https://github.com/ninia/jep/wiki
 
@@ -44,7 +51,7 @@ Some benefits of embedding CPython in a JVM:
 * Python is an interpreted language, enabling scripting of established
   Java code without requiring recompilation.
 
-* Both Java and Python are cross platform, enabling deployment to 
+* Both Java and Python are cross platform, enabling deployment to
   different operating systems.
 
 
